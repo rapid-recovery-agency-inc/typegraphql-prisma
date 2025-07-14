@@ -36,9 +36,11 @@ export function getFieldTSType(
       TSType = getInputTypeName(typeInfo.type, dmmfDocument);
     }
   } else if (typeInfo.location === "enumTypes") {
-    const enumDef = dmmfDocument.enums.find(
-      it => it.typeName == typeInfo.type,
-    )!;
+    // Fix for issue #470: Better error handling for enum types
+    const enumDef = dmmfDocument.enums.find(it => it.typeName == typeInfo.type);
+    if (!enumDef) {
+      throw new Error(`Enum type ${typeInfo.type} not found in schema. Make sure it's properly defined and imported.`);
+    }
     TSType = enumDef.valuesMap.map(({ value }) => `"${value}"`).join(" | ");
   } else {
     throw new Error(`Unsupported field type location: ${typeInfo.location}`);

@@ -184,14 +184,17 @@ export function generateInputTypeClassFromType(
       .map(field => field.selectedInputType.type)
       .filter(fieldType => fieldType !== inputType.typeName),
   );
-  generateEnumsImports(
-    sourceFile,
-    inputType.fields
-      .map(field => field.selectedInputType)
-      .filter(fieldType => fieldType.location === "enumTypes")
-      .map(fieldType => fieldType.type as string),
-    2,
-  );
+  
+  // Fix for issue #470: Extract enum types and ensure they're imported correctly
+  const enumTypes = inputType.fields
+    .map(field => field.selectedInputType)
+    .filter(fieldType => fieldType.location === "enumTypes")
+    .map(fieldType => fieldType.type as string);
+  
+  // Only generate enum imports if there are enum fields
+  if (enumTypes.length > 0) {
+    generateEnumsImports(sourceFile, enumTypes, 2);
+  }
 
   const fieldsToEmit = inputType.fields.filter(field => !field.isOmitted);
   const mappedFields = fieldsToEmit.filter(field => field.hasMappedName);

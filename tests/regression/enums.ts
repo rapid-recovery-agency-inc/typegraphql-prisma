@@ -5,6 +5,7 @@ import { generateCodeFromSchema } from "../helpers/generate-code";
 import createReadGeneratedFile, {
   ReadGeneratedFile,
 } from "../helpers/read-file";
+import { buildSchema } from "graphql";
 
 describe("enums", () => {
   let outputDirPath: string;
@@ -226,4 +227,33 @@ describe("enums", () => {
     expect(nullsOrderTSFile).toMatchSnapshot("NullsOrder");
     expect(enumsIndexTSFile).toMatchSnapshot("enums index");
   });
+
+  // New test for issue #470: Enum imports in input types
+  it("should properly import enums in input types", async () => {
+    const schema = /* prisma */ `
+      enum Role {
+        USER
+        ADMIN
+      }
+
+      model User {
+        id    Int   @id @default(autoincrement())
+        role  Role  @default(USER)
+      }
+    `;
+
+    const generatedOutput = await generateCodeFromSchema(schema, outputDirPath, {});
+    
+    // Check if input type files properly import the enum type
+    expect(generatedOutput).toMatchSnapshot("inputTypeWithEnum");
+    
+    // The following check ensures the enum is imported in the correct input type files
+    // Find the files that should have enum imports
+    const userCreateInputFile = generatedOutput.find(file => 
+      file.path.includes("UserCreateInput.ts")
+    );
+    expect(userCreateInputFile).toBeDefined();
+    expect(userCreateInputFile?.content).toContain('import { Role } from "../../enums/Role"');
+  });
+  
 });

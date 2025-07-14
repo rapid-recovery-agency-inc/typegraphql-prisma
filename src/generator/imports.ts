@@ -346,8 +346,16 @@ export const generateResolversOutputsImports = createImportGenerator(
 export const generateArgsImports = createImportGenerator(argsFolderName);
 function createImportGenerator(elementsDirName: string) {
   return (sourceFile: SourceFile, elementsNames: string[], level = 1) => {
+    // Fix for issue #470: Ensure no empty array is processed and all enum names are unique
+    if (!elementsNames || elementsNames.length === 0) {
+      return;
+    }
+    
     const distinctElementsNames = [...new Set(elementsNames)].sort();
     for (const elementName of distinctElementsNames) {
+      // Skip empty element names
+      if (!elementName) continue;
+      
       sourceFile.addImportDeclaration({
         moduleSpecifier:
           (level === 0 ? "./" : "") +

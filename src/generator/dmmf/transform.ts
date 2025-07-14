@@ -447,8 +447,12 @@ function selectInputTypeFromTypes(dmmfDocument: DmmfDocument) {
       possibleInputTypes[0];
 
     let inputType = selectedInputType.type as string;
+    // Fix for issue #470: Ensure enum types are properly handled
     if (selectedInputType.location === "enumTypes") {
-      const enumDef = dmmfDocument.enums.find(it => it.name === inputType)!;
+      const enumDef = dmmfDocument.enums.find(it => it.name === inputType);
+      if (!enumDef) {
+        throw new Error(`Could not find enum definition for ${inputType}`);
+      }
       inputType = enumDef.typeName;
     } else if (selectedInputType.location === "inputObjectTypes") {
       inputType = getInputTypeName(inputType, dmmfDocument);
