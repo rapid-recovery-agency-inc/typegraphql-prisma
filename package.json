@@ -1,6 +1,6 @@
 {
-  "name": "typegraphql-prisma",
-  "version": "0.28.0",
+  "name": "@rapid-recovery-agency-inc/typegraphql-prisma",
+  "version": "0.29.0",
   "scripts": {
     "prepare": "husky install",
     "build": "tsc",
@@ -19,18 +19,18 @@
     "typegraphql-prisma": "lib/generator.js"
   },
   "peerDependencies": {
-    "@prisma/client": "^6.11.1",
+    "@prisma/client": "^6.12.0",
     "@types/graphql-fields": "^1.3.9",
     "@types/node": "*",
     "graphql-fields": "^2.0.3",
     "graphql-scalars": "^1.23.0",
-    "prisma": "^6.11.1",
+    "prisma": "^6.12.0",
     "tslib": "^2.6.3",
     "type-graphql": "^1.1.1 || >=1.2.0-rc || >=2.0.0-beta || >=2.0.0-rc"
   },
   "dependencies": {
-    "@prisma/generator-helper": "^6.11.1",
-    "@prisma/internals": "^6.11.1",
+    "@prisma/generator-helper": "^6.12.0",
+    "@prisma/internals": "^6.12.0",
     "pluralize": "^8.0.0",
     "semver": "^7.6.3",
     "ts-morph": "^23.0.0",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@jest/types": "^29.6.3",
-    "@prisma/client": "^6.11.1",
+    "@prisma/client": "^6.12.0",
     "@types/graphql-fields": "^1.3.9",
     "@types/jest": "^29.5.12",
     "@types/node": "^22.1.0",
@@ -57,7 +57,7 @@
     "pg": "^8.12.0",
     "prettier": "^3.3.3",
     "prettier-2": "npm:prettier@^2",
-    "prisma": "^6.11.1",
+    "prisma": "^6.12.0",
     "reflect-metadata": "0.1.13",
     "ts-jest": "~29.2.4",
     "ts-node": "^10.9.2",
@@ -74,13 +74,20 @@
     "name": "Michał Lytek",
     "url": "https://github.com/MichalLytek"
   },
+  "contributors": [
+    {
+      "name": "Angel Lacret",
+      "url": "https://github.com/alacret"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/MichalLytek/typegraphql-prisma.git"
+    "url": "https://github.com/rapid-recovery-agency-inc/typegraphql-prisma.git"
   },
   "bugs": {
-    "url": "https://github.com/MichalLytek/typegraphql-prisma/issues"
+    "url": "https://github.com/rapid-recovery-agency-inc/typegraphql-prisma/issues"
   },
+  "homepage": "https://github.com/rapid-recovery-agency-inc/typegraphql-prisma#readme",
   "keywords": [
     "type-graphql",
     "typegraphql",
