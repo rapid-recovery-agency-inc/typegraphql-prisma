@@ -7,7 +7,7 @@ Having installed all the deps and configured the Prisma generator, let's see the
 
 ## Showcase
 
-Let's assume you have this statements in your Prisma schema:
+Let's assume you have these statements in your Prisma schema:
 
 ```prisma title=prisma/schema.prisma
 enum UserKind {
