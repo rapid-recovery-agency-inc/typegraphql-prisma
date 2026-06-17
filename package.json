@@ -1,6 +1,6 @@
 {
   "name": "@rapid-recovery-agency-inc/typegraphql-prisma",
-  "version": "0.29.0",
+  "version": "1.1.0",
   "scripts": {
     "prepare": "husky install",
     "build": "tsc",
