@@ -6,6 +6,7 @@ import childProcess from "child_process";
 import { buildSchema } from "type-graphql";
 import { graphql } from "graphql";
 import pg from "pg";
+import { PrismaPg } from "@prisma/adapter-pg";
 
 import generateArtifactsDirPath from "../helpers/artifacts-dir";
 import { getDirectoryStructureString } from "../helpers/structure";
@@ -23,17 +24,17 @@ describe("generator integration", () => {
     schema = /* prisma */ `
       datasource db {
         provider = "postgresql"
-        url      = env("DATABASE_URL")
       }
 
       generator client {
-        provider = "prisma-client-js"
+        provider = "prisma-client"
         output   = "./generated/client"
       }
 
       generator typegraphql {
         provider = "node ../../../src/cli/dev.ts"
         output   = "./generated/type-graphql"
+        emitTranspiledCode = true
       }
 
       enum Color {
@@ -73,7 +74,7 @@ describe("generator integration", () => {
       cwdDirPath + "/generated/type-graphql",
     );
 
-    expect(prismaGenerateResult.stderr).toHaveLength(0);
+    expect(prismaGenerateResult.stdout).toContain("Generated");
     expect(directoryStructureString).toMatchSnapshot("files structure");
   }, 60000);
 
@@ -82,6 +83,16 @@ describe("generator integration", () => {
       cwd: cwdDirPath,
     });
     // console.log(prismaGenerateResult);
+
+    // Prisma v7's prisma-client generates client.ts (not index.ts),
+    // so we add a package.json with proper entry point and register
+    // ts-node to enable require() of TypeScript files.
+    await fs.writeFile(
+      path.join(cwdDirPath, "generated", "client", "package.json"),
+      JSON.stringify({ main: "client", types: "client.d.ts" }),
+    );
+    require("ts-node/register/transpile-only");
+
     const {
       UserCrudResolver,
       PostCrudResolver,
@@ -102,7 +113,7 @@ describe("generator integration", () => {
       encoding: "utf8",
     });
 
-    expect(prismaGenerateResult.stderr).toHaveLength(0);
+    expect(prismaGenerateResult.stdout).toContain("Generated");
     expect(graphQLSchemaSDL).toMatchSnapshot("graphQLSchemaSDL");
   }, 60000);
 
@@ -130,6 +141,12 @@ describe("generator integration", () => {
       cwd: cwdDirPath,
     });
     // console.log(prismaGenerateResult);
+    // Prisma v7's prisma-client outputs client.ts instead of index.ts,
+    // so we add a package.json to make the directory import resolvable.
+    await fs.writeFile(
+      path.join(cwdDirPath, "generated", "client", "package.json"),
+      JSON.stringify({ main: "client.js", types: "client.d.ts" }),
+    );
     await fs.writeFile(
       path.join(typegraphqlfolderPath, "tsconfig.json"),
       JSON.stringify(tsconfigContent),
@@ -138,7 +155,7 @@ describe("generator integration", () => {
       cwd: typegraphqlfolderPath,
     });
 
-    expect(prismaGenerateResult.stderr).toHaveLength(0);
+    expect(prismaGenerateResult.stdout).toContain("Generated");
     expect(tscResult.stdout).toHaveLength(0);
     expect(tscResult.stderr).toHaveLength(0);
   }, 60000);
@@ -148,11 +165,11 @@ describe("generator integration", () => {
       cwd: cwdDirPath,
     });
     // console.log(prismaGenerateResult);
-    expect(prismaGenerateResult.stderr).toHaveLength(0);
+    expect(prismaGenerateResult.stdout).toContain("Generated");
 
     // drop database before migrate
-    const originalDatabaseUrl = process.env.TEST_DATABASE_URL!;
-    const [dbName, ...databaseUrlParts] = originalDatabaseUrl
+    const originalDatabaseUrl = process.env.TEST_DATABASE_URL;
+    const [dbName, ...databaseUrlParts] = (originalDatabaseUrl ?? "")
       .split("/")
       .reverse();
     const databaseUrl = databaseUrlParts.reverse().join("/") + "/postgres";
@@ -164,14 +181,31 @@ describe("generator integration", () => {
     await pgClient.end();
 
     const prismaMigrateResult = await exec(
-      "npx prisma migrate dev --preview-feature --name init",
+      `npx prisma migrate dev --name init --url "${process.env.TEST_DATABASE_URL}"`,
       { cwd: cwdDirPath },
     );
     // console.log(prismaMigrateResult);
-    expect(prismaMigrateResult.stderr).toHaveLength(0);
+    expect(prismaMigrateResult.stdout).toContain(
+      "Your database is now in sync with your schema",
+    );
+
+    // Prisma v7's prisma-client generates client.ts (not index.ts),
+    // so we add a package.json with proper entry point and register
+    // ts-node to enable require() of TypeScript files.
+    // Must be done after prisma migrate dev (which also runs generators)
+    // to avoid being overwritten.
+    await fs.writeFile(
+      path.join(cwdDirPath, "generated", "client", "package.json"),
+      JSON.stringify({ main: "client", types: "client.d.ts" }),
+    );
+    require("ts-node/register/transpile-only");
 
     const { PrismaClient } = require(cwdDirPath + "/generated/client");
-    const prisma = new PrismaClient();
+    const prisma = new PrismaClient({
+      adapter: new PrismaPg({
+        connectionString: process.env.TEST_DATABASE_URL,
+      }),
+    });
 
     await prisma.user.create({ data: { name: "test1" } });
     await prisma.user.create({

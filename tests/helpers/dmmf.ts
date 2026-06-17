@@ -12,7 +12,7 @@ export default async function getPrismaClientDmmfFromPrismaSchema(
       provider = "${provider}"
     }
     generator client {
-      provider = "prisma-client-js"
+      provider = "prisma-client"
       ${
         previewFeaturesToEmit.length > 0
           ? `previewFeatures = [${previewFeaturesToEmit

@@ -100,12 +100,12 @@ type Mutation {
   createManyUser(data: [UserCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
   createOnePost(data: PostCreateInput!): Post!
   createOneUser(data: UserCreateInput): User!
-  deleteManyPost(where: PostWhereInput): AffectedRowsOutput!
-  deleteManyUser(where: UserWhereInput): AffectedRowsOutput!
+  deleteManyPost(limit: Int, where: PostWhereInput): AffectedRowsOutput!
+  deleteManyUser(limit: Int, where: UserWhereInput): AffectedRowsOutput!
   deleteOnePost(where: PostWhereUniqueInput!): Post
   deleteOneUser(where: UserWhereUniqueInput!): User
-  updateManyPost(data: PostUpdateManyMutationInput!, where: PostWhereInput): AffectedRowsOutput!
-  updateManyUser(data: UserUpdateManyMutationInput!, where: UserWhereInput): AffectedRowsOutput!
+  updateManyPost(data: PostUpdateManyMutationInput!, limit: Int, where: PostWhereInput): AffectedRowsOutput!
+  updateManyUser(data: UserUpdateManyMutationInput!, limit: Int, where: UserWhereInput): AffectedRowsOutput!
   updateOnePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
   updateOneUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   upsertOnePost(create: PostCreateInput!, update: PostUpdateInput!, where: PostWhereUniqueInput!): Post!
@@ -481,7 +481,7 @@ input PostWhereInput {
   AND: [PostWhereInput!]
   NOT: [PostWhereInput!]
   OR: [PostWhereInput!]
-  author: UserRelationFilter
+  author: UserScalarRelationFilter
   authorId: IntFilter
   color: EnumColorFilter
   content: StringFilter
@@ -492,7 +492,7 @@ input PostWhereUniqueInput {
   AND: [PostWhereInput!]
   NOT: [PostWhereInput!]
   OR: [PostWhereInput!]
-  author: UserRelationFilter
+  author: UserScalarRelationFilter
   authorId: IntFilter
   color: EnumColorFilter
   content: StringFilter
@@ -702,14 +702,14 @@ input UserOrderByWithRelationInput {
   posts: PostOrderByRelationAggregateInput
 }
 
-input UserRelationFilter {
-  is: UserWhereInput
-  isNot: UserWhereInput
-}
-
 enum UserScalarFieldEnum {
   id
   name
+}
+
+input UserScalarRelationFilter {
+  is: UserWhereInput
+  isNot: UserWhereInput
 }
 
 input UserScalarWhereWithAggregatesInput {
@@ -782,205 +782,393 @@ input UserWhereUniqueInput {
 exports[`generator integration should generates TypeGraphQL classes files to output folder by running \`prisma generate\`: files structure 1`] = `
 "
 [type-graphql]
-  enhance.ts
+  enhance.d.ts
+  enhance.js
   [enums]
-    Color.ts
-    NullsOrder.ts
-    PostScalarFieldEnum.ts
-    QueryMode.ts
-    SortOrder.ts
-    TransactionIsolationLevel.ts
-    UserScalarFieldEnum.ts
-    index.ts
-  helpers.ts
-  index.ts
+    Color.d.ts
+    Color.js
+    NullsOrder.d.ts
+    NullsOrder.js
+    PostScalarFieldEnum.d.ts
+    PostScalarFieldEnum.js
+    QueryMode.d.ts
+    QueryMode.js
+    SortOrder.d.ts
+    SortOrder.js
+    TransactionIsolationLevel.d.ts
+    TransactionIsolationLevel.js
+    UserScalarFieldEnum.d.ts
+    UserScalarFieldEnum.js
+    index.d.ts
+    index.js
+  helpers.d.ts
+  helpers.js
+  index.d.ts
+  index.js
   [models]
-    Post.ts
-    User.ts
-    index.ts
+    Post.d.ts
+    Post.js
+    User.d.ts
+    User.js
+    index.d.ts
+    index.js
   [resolvers]
     [crud]
       [Post]
-        AggregatePostResolver.ts
-        CreateManyAndReturnPostResolver.ts
-        CreateManyPostResolver.ts
-        CreateOnePostResolver.ts
-        DeleteManyPostResolver.ts
-        DeleteOnePostResolver.ts
-        FindFirstPostOrThrowResolver.ts
-        FindFirstPostResolver.ts
-        FindManyPostResolver.ts
-        FindUniquePostOrThrowResolver.ts
-        FindUniquePostResolver.ts
-        GroupByPostResolver.ts
-        PostCrudResolver.ts
-        UpdateManyPostResolver.ts
-        UpdateOnePostResolver.ts
-        UpsertOnePostResolver.ts
+        AggregatePostResolver.d.ts
+        AggregatePostResolver.js
+        CreateManyAndReturnPostResolver.d.ts
+        CreateManyAndReturnPostResolver.js
+        CreateManyPostResolver.d.ts
+        CreateManyPostResolver.js
+        CreateOnePostResolver.d.ts
+        CreateOnePostResolver.js
+        DeleteManyPostResolver.d.ts
+        DeleteManyPostResolver.js
+        DeleteOnePostResolver.d.ts
+        DeleteOnePostResolver.js
+        FindFirstPostOrThrowResolver.d.ts
+        FindFirstPostOrThrowResolver.js
+        FindFirstPostResolver.d.ts
+        FindFirstPostResolver.js
+        FindManyPostResolver.d.ts
+        FindManyPostResolver.js
+        FindUniquePostOrThrowResolver.d.ts
+        FindUniquePostOrThrowResolver.js
+        FindUniquePostResolver.d.ts
+        FindUniquePostResolver.js
+        GroupByPostResolver.d.ts
+        GroupByPostResolver.js
+        PostCrudResolver.d.ts
+        PostCrudResolver.js
+        UpdateManyPostResolver.d.ts
+        UpdateManyPostResolver.js
+        UpdateOnePostResolver.d.ts
+        UpdateOnePostResolver.js
+        UpsertOnePostResolver.d.ts
+        UpsertOnePostResolver.js
         [args]
-          AggregatePostArgs.ts
-          CreateManyAndReturnPostArgs.ts
-          CreateManyPostArgs.ts
-          CreateOnePostArgs.ts
-          DeleteManyPostArgs.ts
-          DeleteOnePostArgs.ts
-          FindFirstPostArgs.ts
-          FindFirstPostOrThrowArgs.ts
-          FindManyPostArgs.ts
-          FindUniquePostArgs.ts
-          FindUniquePostOrThrowArgs.ts
-          GroupByPostArgs.ts
-          UpdateManyPostArgs.ts
-          UpdateOnePostArgs.ts
-          UpsertOnePostArgs.ts
-          index.ts
+          AggregatePostArgs.d.ts
+          AggregatePostArgs.js
+          CreateManyAndReturnPostArgs.d.ts
+          CreateManyAndReturnPostArgs.js
+          CreateManyPostArgs.d.ts
+          CreateManyPostArgs.js
+          CreateOnePostArgs.d.ts
+          CreateOnePostArgs.js
+          DeleteManyPostArgs.d.ts
+          DeleteManyPostArgs.js
+          DeleteOnePostArgs.d.ts
+          DeleteOnePostArgs.js
+          FindFirstPostArgs.d.ts
+          FindFirstPostArgs.js
+          FindFirstPostOrThrowArgs.d.ts
+          FindFirstPostOrThrowArgs.js
+          FindManyPostArgs.d.ts
+          FindManyPostArgs.js
+          FindUniquePostArgs.d.ts
+          FindUniquePostArgs.js
+          FindUniquePostOrThrowArgs.d.ts
+          FindUniquePostOrThrowArgs.js
+          GroupByPostArgs.d.ts
+          GroupByPostArgs.js
+          UpdateManyPostArgs.d.ts
+          UpdateManyPostArgs.js
+          UpdateOnePostArgs.d.ts
+          UpdateOnePostArgs.js
+          UpsertOnePostArgs.d.ts
+          UpsertOnePostArgs.js
+          index.d.ts
+          index.js
       [User]
-        AggregateUserResolver.ts
-        CreateManyAndReturnUserResolver.ts
-        CreateManyUserResolver.ts
-        CreateOneUserResolver.ts
-        DeleteManyUserResolver.ts
-        DeleteOneUserResolver.ts
-        FindFirstUserOrThrowResolver.ts
-        FindFirstUserResolver.ts
-        FindManyUserResolver.ts
-        FindUniqueUserOrThrowResolver.ts
-        FindUniqueUserResolver.ts
-        GroupByUserResolver.ts
-        UpdateManyUserResolver.ts
-        UpdateOneUserResolver.ts
-        UpsertOneUserResolver.ts
-        UserCrudResolver.ts
+        AggregateUserResolver.d.ts
+        AggregateUserResolver.js
+        CreateManyAndReturnUserResolver.d.ts
+        CreateManyAndReturnUserResolver.js
+        CreateManyUserResolver.d.ts
+        CreateManyUserResolver.js
+        CreateOneUserResolver.d.ts
+        CreateOneUserResolver.js
+        DeleteManyUserResolver.d.ts
+        DeleteManyUserResolver.js
+        DeleteOneUserResolver.d.ts
+        DeleteOneUserResolver.js
+        FindFirstUserOrThrowResolver.d.ts
+        FindFirstUserOrThrowResolver.js
+        FindFirstUserResolver.d.ts
+        FindFirstUserResolver.js
+        FindManyUserResolver.d.ts
+        FindManyUserResolver.js
+        FindUniqueUserOrThrowResolver.d.ts
+        FindUniqueUserOrThrowResolver.js
+        FindUniqueUserResolver.d.ts
+        FindUniqueUserResolver.js
+        GroupByUserResolver.d.ts
+        GroupByUserResolver.js
+        UpdateManyUserResolver.d.ts
+        UpdateManyUserResolver.js
+        UpdateOneUserResolver.d.ts
+        UpdateOneUserResolver.js
+        UpsertOneUserResolver.d.ts
+        UpsertOneUserResolver.js
+        UserCrudResolver.d.ts
+        UserCrudResolver.js
         [args]
-          AggregateUserArgs.ts
-          CreateManyAndReturnUserArgs.ts
-          CreateManyUserArgs.ts
-          CreateOneUserArgs.ts
-          DeleteManyUserArgs.ts
-          DeleteOneUserArgs.ts
-          FindFirstUserArgs.ts
-          FindFirstUserOrThrowArgs.ts
-          FindManyUserArgs.ts
-          FindUniqueUserArgs.ts
-          FindUniqueUserOrThrowArgs.ts
-          GroupByUserArgs.ts
-          UpdateManyUserArgs.ts
-          UpdateOneUserArgs.ts
-          UpsertOneUserArgs.ts
-          index.ts
-      args.index.ts
-      index.ts
-      resolvers-actions.index.ts
-      resolvers-crud.index.ts
+          AggregateUserArgs.d.ts
+          AggregateUserArgs.js
+          CreateManyAndReturnUserArgs.d.ts
+          CreateManyAndReturnUserArgs.js
+          CreateManyUserArgs.d.ts
+          CreateManyUserArgs.js
+          CreateOneUserArgs.d.ts
+          CreateOneUserArgs.js
+          DeleteManyUserArgs.d.ts
+          DeleteManyUserArgs.js
+          DeleteOneUserArgs.d.ts
+          DeleteOneUserArgs.js
+          FindFirstUserArgs.d.ts
+          FindFirstUserArgs.js
+          FindFirstUserOrThrowArgs.d.ts
+          FindFirstUserOrThrowArgs.js
+          FindManyUserArgs.d.ts
+          FindManyUserArgs.js
+          FindUniqueUserArgs.d.ts
+          FindUniqueUserArgs.js
+          FindUniqueUserOrThrowArgs.d.ts
+          FindUniqueUserOrThrowArgs.js
+          GroupByUserArgs.d.ts
+          GroupByUserArgs.js
+          UpdateManyUserArgs.d.ts
+          UpdateManyUserArgs.js
+          UpdateOneUserArgs.d.ts
+          UpdateOneUserArgs.js
+          UpsertOneUserArgs.d.ts
+          UpsertOneUserArgs.js
+          index.d.ts
+          index.js
+      args.index.d.ts
+      args.index.js
+      index.d.ts
+      index.js
+      resolvers-actions.index.d.ts
+      resolvers-actions.index.js
+      resolvers-crud.index.d.ts
+      resolvers-crud.index.js
     [inputs]
-      EnumColorFieldUpdateOperationsInput.ts
-      EnumColorFilter.ts
-      EnumColorWithAggregatesFilter.ts
-      IntFieldUpdateOperationsInput.ts
-      IntFilter.ts
-      IntWithAggregatesFilter.ts
-      NestedEnumColorFilter.ts
-      NestedEnumColorWithAggregatesFilter.ts
-      NestedFloatFilter.ts
-      NestedIntFilter.ts
-      NestedIntNullableFilter.ts
-      NestedIntWithAggregatesFilter.ts
-      NestedStringFilter.ts
-      NestedStringNullableFilter.ts
-      NestedStringNullableWithAggregatesFilter.ts
-      NestedStringWithAggregatesFilter.ts
-      NullableStringFieldUpdateOperationsInput.ts
-      PostAvgOrderByAggregateInput.ts
-      PostCountOrderByAggregateInput.ts
-      PostCreateInput.ts
-      PostCreateManyAuthorInput.ts
-      PostCreateManyAuthorInputEnvelope.ts
-      PostCreateManyInput.ts
-      PostCreateNestedManyWithoutAuthorInput.ts
-      PostCreateOrConnectWithoutAuthorInput.ts
-      PostCreateWithoutAuthorInput.ts
-      PostListRelationFilter.ts
-      PostMaxOrderByAggregateInput.ts
-      PostMinOrderByAggregateInput.ts
-      PostOrderByRelationAggregateInput.ts
-      PostOrderByWithAggregationInput.ts
-      PostOrderByWithRelationInput.ts
-      PostScalarWhereInput.ts
-      PostScalarWhereWithAggregatesInput.ts
-      PostSumOrderByAggregateInput.ts
-      PostUpdateInput.ts
-      PostUpdateManyMutationInput.ts
-      PostUpdateManyWithWhereWithoutAuthorInput.ts
-      PostUpdateManyWithoutAuthorNestedInput.ts
-      PostUpdateWithWhereUniqueWithoutAuthorInput.ts
-      PostUpdateWithoutAuthorInput.ts
-      PostUpsertWithWhereUniqueWithoutAuthorInput.ts
-      PostWhereInput.ts
-      PostWhereUniqueInput.ts
-      SortOrderInput.ts
-      StringFieldUpdateOperationsInput.ts
-      StringFilter.ts
-      StringNullableFilter.ts
-      StringNullableWithAggregatesFilter.ts
-      StringWithAggregatesFilter.ts
-      UserAvgOrderByAggregateInput.ts
-      UserCountOrderByAggregateInput.ts
-      UserCreateInput.ts
-      UserCreateManyInput.ts
-      UserCreateNestedOneWithoutPostsInput.ts
-      UserCreateOrConnectWithoutPostsInput.ts
-      UserCreateWithoutPostsInput.ts
-      UserMaxOrderByAggregateInput.ts
-      UserMinOrderByAggregateInput.ts
-      UserOrderByWithAggregationInput.ts
-      UserOrderByWithRelationInput.ts
-      UserRelationFilter.ts
-      UserScalarWhereWithAggregatesInput.ts
-      UserSumOrderByAggregateInput.ts
-      UserUpdateInput.ts
-      UserUpdateManyMutationInput.ts
-      UserUpdateOneRequiredWithoutPostsNestedInput.ts
-      UserUpdateToOneWithWhereWithoutPostsInput.ts
-      UserUpdateWithoutPostsInput.ts
-      UserUpsertWithoutPostsInput.ts
-      UserWhereInput.ts
-      UserWhereUniqueInput.ts
-      index.ts
+      EnumColorFieldUpdateOperationsInput.d.ts
+      EnumColorFieldUpdateOperationsInput.js
+      EnumColorFilter.d.ts
+      EnumColorFilter.js
+      EnumColorWithAggregatesFilter.d.ts
+      EnumColorWithAggregatesFilter.js
+      IntFieldUpdateOperationsInput.d.ts
+      IntFieldUpdateOperationsInput.js
+      IntFilter.d.ts
+      IntFilter.js
+      IntWithAggregatesFilter.d.ts
+      IntWithAggregatesFilter.js
+      NestedEnumColorFilter.d.ts
+      NestedEnumColorFilter.js
+      NestedEnumColorWithAggregatesFilter.d.ts
+      NestedEnumColorWithAggregatesFilter.js
+      NestedFloatFilter.d.ts
+      NestedFloatFilter.js
+      NestedIntFilter.d.ts
+      NestedIntFilter.js
+      NestedIntNullableFilter.d.ts
+      NestedIntNullableFilter.js
+      NestedIntWithAggregatesFilter.d.ts
+      NestedIntWithAggregatesFilter.js
+      NestedStringFilter.d.ts
+      NestedStringFilter.js
+      NestedStringNullableFilter.d.ts
+      NestedStringNullableFilter.js
+      NestedStringNullableWithAggregatesFilter.d.ts
+      NestedStringNullableWithAggregatesFilter.js
+      NestedStringWithAggregatesFilter.d.ts
+      NestedStringWithAggregatesFilter.js
+      NullableStringFieldUpdateOperationsInput.d.ts
+      NullableStringFieldUpdateOperationsInput.js
+      PostAvgOrderByAggregateInput.d.ts
+      PostAvgOrderByAggregateInput.js
+      PostCountOrderByAggregateInput.d.ts
+      PostCountOrderByAggregateInput.js
+      PostCreateInput.d.ts
+      PostCreateInput.js
+      PostCreateManyAuthorInput.d.ts
+      PostCreateManyAuthorInput.js
+      PostCreateManyAuthorInputEnvelope.d.ts
+      PostCreateManyAuthorInputEnvelope.js
+      PostCreateManyInput.d.ts
+      PostCreateManyInput.js
+      PostCreateNestedManyWithoutAuthorInput.d.ts
+      PostCreateNestedManyWithoutAuthorInput.js
+      PostCreateOrConnectWithoutAuthorInput.d.ts
+      PostCreateOrConnectWithoutAuthorInput.js
+      PostCreateWithoutAuthorInput.d.ts
+      PostCreateWithoutAuthorInput.js
+      PostListRelationFilter.d.ts
+      PostListRelationFilter.js
+      PostMaxOrderByAggregateInput.d.ts
+      PostMaxOrderByAggregateInput.js
+      PostMinOrderByAggregateInput.d.ts
+      PostMinOrderByAggregateInput.js
+      PostOrderByRelationAggregateInput.d.ts
+      PostOrderByRelationAggregateInput.js
+      PostOrderByWithAggregationInput.d.ts
+      PostOrderByWithAggregationInput.js
+      PostOrderByWithRelationInput.d.ts
+      PostOrderByWithRelationInput.js
+      PostScalarWhereInput.d.ts
+      PostScalarWhereInput.js
+      PostScalarWhereWithAggregatesInput.d.ts
+      PostScalarWhereWithAggregatesInput.js
+      PostSumOrderByAggregateInput.d.ts
+      PostSumOrderByAggregateInput.js
+      PostUpdateInput.d.ts
+      PostUpdateInput.js
+      PostUpdateManyMutationInput.d.ts
+      PostUpdateManyMutationInput.js
+      PostUpdateManyWithWhereWithoutAuthorInput.d.ts
+      PostUpdateManyWithWhereWithoutAuthorInput.js
+      PostUpdateManyWithoutAuthorNestedInput.d.ts
+      PostUpdateManyWithoutAuthorNestedInput.js
+      PostUpdateWithWhereUniqueWithoutAuthorInput.d.ts
+      PostUpdateWithWhereUniqueWithoutAuthorInput.js
+      PostUpdateWithoutAuthorInput.d.ts
+      PostUpdateWithoutAuthorInput.js
+      PostUpsertWithWhereUniqueWithoutAuthorInput.d.ts
+      PostUpsertWithWhereUniqueWithoutAuthorInput.js
+      PostWhereInput.d.ts
+      PostWhereInput.js
+      PostWhereUniqueInput.d.ts
+      PostWhereUniqueInput.js
+      SortOrderInput.d.ts
+      SortOrderInput.js
+      StringFieldUpdateOperationsInput.d.ts
+      StringFieldUpdateOperationsInput.js
+      StringFilter.d.ts
+      StringFilter.js
+      StringNullableFilter.d.ts
+      StringNullableFilter.js
+      StringNullableWithAggregatesFilter.d.ts
+      StringNullableWithAggregatesFilter.js
+      StringWithAggregatesFilter.d.ts
+      StringWithAggregatesFilter.js
+      UserAvgOrderByAggregateInput.d.ts
+      UserAvgOrderByAggregateInput.js
+      UserCountOrderByAggregateInput.d.ts
+      UserCountOrderByAggregateInput.js
+      UserCreateInput.d.ts
+      UserCreateInput.js
+      UserCreateManyInput.d.ts
+      UserCreateManyInput.js
+      UserCreateNestedOneWithoutPostsInput.d.ts
+      UserCreateNestedOneWithoutPostsInput.js
+      UserCreateOrConnectWithoutPostsInput.d.ts
+      UserCreateOrConnectWithoutPostsInput.js
+      UserCreateWithoutPostsInput.d.ts
+      UserCreateWithoutPostsInput.js
+      UserMaxOrderByAggregateInput.d.ts
+      UserMaxOrderByAggregateInput.js
+      UserMinOrderByAggregateInput.d.ts
+      UserMinOrderByAggregateInput.js
+      UserOrderByWithAggregationInput.d.ts
+      UserOrderByWithAggregationInput.js
+      UserOrderByWithRelationInput.d.ts
+      UserOrderByWithRelationInput.js
+      UserScalarRelationFilter.d.ts
+      UserScalarRelationFilter.js
+      UserScalarWhereWithAggregatesInput.d.ts
+      UserScalarWhereWithAggregatesInput.js
+      UserSumOrderByAggregateInput.d.ts
+      UserSumOrderByAggregateInput.js
+      UserUpdateInput.d.ts
+      UserUpdateInput.js
+      UserUpdateManyMutationInput.d.ts
+      UserUpdateManyMutationInput.js
+      UserUpdateOneRequiredWithoutPostsNestedInput.d.ts
+      UserUpdateOneRequiredWithoutPostsNestedInput.js
+      UserUpdateToOneWithWhereWithoutPostsInput.d.ts
+      UserUpdateToOneWithWhereWithoutPostsInput.js
+      UserUpdateWithoutPostsInput.d.ts
+      UserUpdateWithoutPostsInput.js
+      UserUpsertWithoutPostsInput.d.ts
+      UserUpsertWithoutPostsInput.js
+      UserWhereInput.d.ts
+      UserWhereInput.js
+      UserWhereUniqueInput.d.ts
+      UserWhereUniqueInput.js
+      index.d.ts
+      index.js
     [outputs]
-      AffectedRowsOutput.ts
-      AggregatePost.ts
-      AggregateUser.ts
-      CreateManyAndReturnPost.ts
-      CreateManyAndReturnUser.ts
-      PostAvgAggregate.ts
-      PostCountAggregate.ts
-      PostGroupBy.ts
-      PostMaxAggregate.ts
-      PostMinAggregate.ts
-      PostSumAggregate.ts
-      UserAvgAggregate.ts
-      UserCount.ts
-      UserCountAggregate.ts
-      UserGroupBy.ts
-      UserMaxAggregate.ts
-      UserMinAggregate.ts
-      UserSumAggregate.ts
+      AffectedRowsOutput.d.ts
+      AffectedRowsOutput.js
+      AggregatePost.d.ts
+      AggregatePost.js
+      AggregateUser.d.ts
+      AggregateUser.js
+      CreateManyAndReturnPost.d.ts
+      CreateManyAndReturnPost.js
+      CreateManyAndReturnUser.d.ts
+      CreateManyAndReturnUser.js
+      PostAvgAggregate.d.ts
+      PostAvgAggregate.js
+      PostCountAggregate.d.ts
+      PostCountAggregate.js
+      PostGroupBy.d.ts
+      PostGroupBy.js
+      PostMaxAggregate.d.ts
+      PostMaxAggregate.js
+      PostMinAggregate.d.ts
+      PostMinAggregate.js
+      PostSumAggregate.d.ts
+      PostSumAggregate.js
+      UpdateManyPostAndReturnOutputType.d.ts
+      UpdateManyPostAndReturnOutputType.js
+      UpdateManyUserAndReturnOutputType.d.ts
+      UpdateManyUserAndReturnOutputType.js
+      UserAvgAggregate.d.ts
+      UserAvgAggregate.js
+      UserCount.d.ts
+      UserCount.js
+      UserCountAggregate.d.ts
+      UserCountAggregate.js
+      UserGroupBy.d.ts
+      UserGroupBy.js
+      UserMaxAggregate.d.ts
+      UserMaxAggregate.js
+      UserMinAggregate.d.ts
+      UserMinAggregate.js
+      UserSumAggregate.d.ts
+      UserSumAggregate.js
       [args]
-        UserCountPostsArgs.ts
-        index.ts
-      index.ts
+        UserCountPostsArgs.d.ts
+        UserCountPostsArgs.js
+        index.d.ts
+        index.js
+      index.d.ts
+      index.js
     [relations]
       [Post]
-        PostRelationsResolver.ts
+        PostRelationsResolver.d.ts
+        PostRelationsResolver.js
       [User]
-        UserRelationsResolver.ts
+        UserRelationsResolver.d.ts
+        UserRelationsResolver.js
         [args]
-          UserPostsArgs.ts
-          index.ts
-      args.index.ts
-      index.ts
-      resolvers.index.ts
-  scalars.ts
+          UserPostsArgs.d.ts
+          UserPostsArgs.js
+          index.d.ts
+          index.js
+      args.index.d.ts
+      args.index.js
+      index.d.ts
+      index.js
+      resolvers.index.d.ts
+      resolvers.index.js
+  scalars.d.ts
+  scalars.js
 "
 `;
 
