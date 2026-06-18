@@ -6,7 +6,7 @@ generatorHandler({
   onManifest: () => ({
     defaultOutput: "node_modules/@generated/type-graphql",
     prettyName: "TypeGraphQL integration",
-    requiresGenerators: ["prisma-client-js"],
+    requiresGenerators: ["prisma-client"],
   }),
   onGenerate: generate,
 });
