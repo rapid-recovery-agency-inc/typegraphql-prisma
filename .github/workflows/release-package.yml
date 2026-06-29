@@ -47,7 +47,9 @@ jobs:
         id: update_version
         run: |
           LATEST_VERSION="${{ steps.get_latest_version.outputs.latest_version }}"
-          npm version "$LATEST_VERSION" --no-git-tag-version --allow-same-version
+          if [ -n "$LATEST_VERSION" ]; then
+            npm version "$LATEST_VERSION" --no-git-tag-version --allow-same-version
+          fi
           npm version minor --no-git-tag-version
       - name: Install dependencies
         run: npm install ci
