@@ -25,7 +25,12 @@ export async function generate(options: GeneratorOptions) {
   const CLIENT_PROVIDERS = ["prisma-client-js", "prisma-client"];
   const prismaClientProvider = options.otherGenerators.find(it =>
     CLIENT_PROVIDERS.includes(parseEnvValue(it.provider)),
-  )!;
+  );
+  if (!prismaClientProvider) {
+    throw new Error(
+      'TypeGraphQL integration requires either "prisma-client" or "prisma-client-js" generator.',
+    );
+  }
   const prismaClientPath = parseEnvValue(prismaClientProvider.output!);
   const prismaClientDmmf = await getDMMF({
     datamodel: options.datamodel,
