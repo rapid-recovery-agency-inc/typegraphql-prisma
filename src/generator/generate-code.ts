@@ -1,5 +1,6 @@
 import type { DMMF as PrismaDMMF } from "@prisma/generator-helper";
 import { Project, ScriptTarget, ModuleKind, CompilerOptions } from "ts-morph";
+import { promises as fs } from "node:fs";
 import path from "path";
 import { exec } from "node:child_process";
 import { promisify } from "node:util";
@@ -60,6 +61,15 @@ const baseCompilerOptions: CompilerOptions = {
   esModuleInterop: true,
   skipLibCheck: true,
 };
+
+async function emitTranspiledProject(project: Project): Promise<void> {
+  const emitResult = project.emitToMemory();
+  for (const outputFile of emitResult.getFiles()) {
+    await fs.mkdir(path.dirname(outputFile.filePath), { recursive: true });
+    const byteOrderMark = outputFile.writeByteOrderMark ? "\uFEFF" : "";
+    await fs.writeFile(outputFile.filePath, byteOrderMark + outputFile.text);
+  }
+}
 
 export default async function generateCode(
   dmmf: PrismaDMMF.Document,
@@ -530,7 +540,7 @@ export default async function generateCode(
 
   log("Emitting generated code files");
   if (emitTranspiledCode) {
-    await project.emit();
+    await emitTranspiledProject(project);
   } else {
     if (options.formatGeneratedCode === "tsc") {
       for (const file of project.getSourceFiles()) {
