@@ -256,6 +256,7 @@ describe("models", () => {
     );
 
     expect(nativeTypeModelTSFile).toMatchSnapshot("NativeTypeModel");
+    expect(nativeTypeModelTSFile).toContain("byteA?: Uint8Array | null;");
   });
 
   it("should properly generate object type class for mongo prisma model with nested types", async () => {

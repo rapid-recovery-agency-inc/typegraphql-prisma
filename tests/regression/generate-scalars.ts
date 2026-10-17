@@ -1,4 +1,5 @@
 import { promises as fs } from "fs";
+import path from "path";
 import generateArtifactsDirPath from "../helpers/artifacts-dir";
 import { generateCodeFromSchema } from "../helpers/generate-code";
 import createReadGeneratedFile, {
@@ -28,6 +29,20 @@ describe("custom scalars", () => {
     const mainIndexTSFile = await readGeneratedFile("/index.ts");
 
     expect(scalarsTSFile).toMatchSnapshot("scalars");
+    expect(scalarsTSFile).toContain("export const PrismaBytesScalar");
+    expect(scalarsTSFile).toContain("...byteResolverConfig");
     expect(mainIndexTSFile).toMatchSnapshot("mainIndex");
+
+    const { PrismaBytesScalar } = require(
+      path.join(outputDirPath, "scalars.ts"),
+    );
+    const bytes = Uint8Array.from([1, 2, 3]);
+
+    expect(PrismaBytesScalar.serialize(bytes)).toEqual(Buffer.from(bytes));
+    expect(PrismaBytesScalar.serialize("AQID")).toEqual(Buffer.from(bytes));
+    expect(PrismaBytesScalar.extensions).toMatchObject({
+      codegenScalarType: "Buffer | string",
+      jsonSchema: { format: "byte", type: "string" },
+    });
   });
 });

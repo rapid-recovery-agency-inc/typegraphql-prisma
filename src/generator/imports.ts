@@ -61,7 +61,7 @@ export function generateCustomScalarsImport(sourceFile: SourceFile, level = 0) {
     moduleSpecifier:
       (level === 0 ? "./" : "") +
       path.posix.join(...Array(level).fill(".."), "scalars"),
-    namedImports: ["DecimalJSScalar"],
+    namedImports: ["DecimalJSScalar", "PrismaBytesScalar"],
   });
 }
 
