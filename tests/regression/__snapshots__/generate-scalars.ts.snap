@@ -25,6 +25,7 @@ export const resolvers = [
 exports[`custom scalars should properly emit custom scalars file: scalars 1`] = `
 "import { Prisma } from \\"./../../helpers/prisma-client-mock\\";
 import { GraphQLScalarType } from \\"graphql\\";
+import * as GraphQLScalars from \\"graphql-scalars\\";
 
 export const DecimalJSScalar = new GraphQLScalarType({
   name: \\"Decimal\\",
@@ -41,6 +42,14 @@ export const DecimalJSScalar = new GraphQLScalarType({
     }
     return new Prisma.Decimal(value);
   },
+});
+
+const byteResolverConfig = GraphQLScalars.ByteResolver.toConfig();
+
+export const PrismaBytesScalar = new GraphQLScalarType({
+  ...byteResolverConfig,
+  serialize: (value: unknown) =>
+    byteResolverConfig.serialize(value instanceof Uint8Array ? Buffer.from(value) : value),
 });
 
 "

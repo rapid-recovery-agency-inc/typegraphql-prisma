@@ -2,7 +2,7 @@ import { DmmfDocument } from "./dmmf/dmmf-document";
 import { DMMF } from "./dmmf/types";
 export declare function noop(): void;
 export declare function getFieldTSType(dmmfDocument: DmmfDocument, typeInfo: DMMF.TypeInfo, isRequired: boolean, isInputType: boolean, modelName?: string, typeName?: string): string;
-export declare function mapScalarToTSType(scalar: string, isInputType: boolean): "boolean" | "string" | "number" | "Date" | "Prisma.InputJsonValue" | "Prisma.JsonValue" | "bigint" | "Prisma.Decimal" | "Buffer";
+export declare function mapScalarToTSType(scalar: string, isInputType: boolean): "boolean" | "string" | "number" | "Date" | "Prisma.InputJsonValue" | "Prisma.JsonValue" | "bigint" | "Prisma.Decimal" | "Buffer" | "Uint8Array";
 export declare function getTypeGraphQLType(typeInfo: DMMF.TypeInfo, dmmfDocument: DmmfDocument, modelName?: string, typeName?: string, isIdField?: boolean): string;
 export declare function mapScalarToTypeGraphQLType(scalar: string, emitIdAsIDType: boolean | undefined, isIdField?: boolean): string;
 export declare function camelCase(str: string): string;
