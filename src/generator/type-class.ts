@@ -51,7 +51,11 @@ export function generateOutputTypeClassFromType(
   generateTypeGraphQLImport(sourceFile);
   generateGraphQLScalarsImport(sourceFile);
   generatePrismaNamespaceImport(sourceFile, dmmfDocument.options, 2);
-  generateCustomScalarsImport(sourceFile, 2);
+  generateCustomScalarsImport(
+    sourceFile,
+    2,
+    type.fields.some(field => field.typeGraphQLType === "PrismaBytesScalar"),
+  );
   generateArgsImports(sourceFile, fieldArgsTypeNames, 0);
   generateOutputsImports(
     sourceFile,
@@ -176,7 +180,13 @@ export function generateInputTypeClassFromType(
   generateTypeGraphQLImport(sourceFile);
   generateGraphQLScalarsImport(sourceFile);
   generatePrismaNamespaceImport(sourceFile, options, 2);
-  generateCustomScalarsImport(sourceFile, 2);
+  generateCustomScalarsImport(
+    sourceFile,
+    2,
+    inputType.fields.some(
+      field => field.typeGraphQLType === "PrismaBytesScalar",
+    ),
+  );
   generateInputsImports(
     sourceFile,
     inputType.fields

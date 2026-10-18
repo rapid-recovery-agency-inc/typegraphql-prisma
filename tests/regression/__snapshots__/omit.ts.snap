@@ -11,17 +11,17 @@ export class UserCreateInput {
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  dateOfBirth!: Date;
+  dateOfBirth!: (Date & Prisma.UserCreateInput[\\"dateOfBirth\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  name!: string;
+  name!: (string & Prisma.UserCreateInput[\\"name\\"]);
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
     nullable: true
   })
-  balance?: number | undefined;
+  balance?: ((number | null) & Prisma.UserCreateInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -37,17 +37,17 @@ export class UserCreateManyInput {
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  dateOfBirth!: Date;
+  dateOfBirth!: (Date & Prisma.UserCreateManyInput[\\"dateOfBirth\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  name!: string;
+  name!: (string & Prisma.UserCreateManyInput[\\"name\\"]);
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
     nullable: true
   })
-  balance?: number | undefined;
+  balance?: ((number | null) & Prisma.UserCreateManyInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -65,17 +65,17 @@ export class UserOrderByWithRelationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  dateOfBirth?: \\"asc\\" | \\"desc\\" | undefined;
+  dateOfBirth?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  name?: \\"asc\\" | \\"desc\\" | undefined;
+  name?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrderInput, {
     nullable: true
   })
-  balance?: SortOrderInput | undefined;
+  balance?: ((SortOrderInput | null) & Prisma.UserOrderByWithRelationInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -95,32 +95,32 @@ export class UserScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  AND?: UserScalarWhereWithAggregatesInput[] | undefined;
+  AND?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  OR?: UserScalarWhereWithAggregatesInput[] | undefined;
+  OR?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  NOT?: UserScalarWhereWithAggregatesInput[] | undefined;
+  NOT?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeWithAggregatesFilter | undefined;
+  dateOfBirth?: ((DateTimeWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
-  name?: StringWithAggregatesFilter | undefined;
+  name?: ((StringWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => FloatNullableWithAggregatesFilter, {
     nullable: true
   })
-  balance?: FloatNullableWithAggregatesFilter | undefined;
+  balance?: ((FloatNullableWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -139,17 +139,17 @@ export class UserUpdateInput {
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFieldUpdateOperationsInput | undefined;
+  dateOfBirth?: ((DateTimeFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  name?: StringFieldUpdateOperationsInput | undefined;
+  name?: ((StringFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => NullableFloatFieldUpdateOperationsInput, {
     nullable: true
   })
-  balance?: NullableFloatFieldUpdateOperationsInput | undefined;
+  balance?: ((NullableFloatFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -168,17 +168,17 @@ export class UserUpdateManyMutationInput {
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFieldUpdateOperationsInput | undefined;
+  dateOfBirth?: ((DateTimeFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  name?: StringFieldUpdateOperationsInput | undefined;
+  name?: ((StringFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => NullableFloatFieldUpdateOperationsInput, {
     nullable: true
   })
-  balance?: NullableFloatFieldUpdateOperationsInput | undefined;
+  balance?: ((NullableFloatFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -198,32 +198,32 @@ export class UserWhereInput {
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  AND?: UserWhereInput[] | undefined;
+  AND?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  OR?: UserWhereInput[] | undefined;
+  OR?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  NOT?: UserWhereInput[] | undefined;
+  NOT?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFilter | undefined;
+  dateOfBirth?: ((DateTimeFilter | null) & Prisma.UserWhereInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  name?: StringFilter | undefined;
+  name?: ((StringFilter | null) & Prisma.UserWhereInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => FloatNullableFilter, {
     nullable: true
   })
-  balance?: FloatNullableFilter | undefined;
+  balance?: ((FloatNullableFilter | null) & Prisma.UserWhereInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -243,32 +243,32 @@ export class UserWhereUniqueInput {
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  AND?: UserWhereInput[] | undefined;
+  AND?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  OR?: UserWhereInput[] | undefined;
+  OR?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  NOT?: UserWhereInput[] | undefined;
+  NOT?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFilter | undefined;
+  dateOfBirth?: ((DateTimeFilter | null) & Prisma.UserWhereUniqueInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  name?: StringFilter | undefined;
+  name?: ((StringFilter | null) & Prisma.UserWhereUniqueInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => FloatNullableFilter, {
     nullable: true
   })
-  balance?: FloatNullableFilter | undefined;
+  balance?: ((FloatNullableFilter | null) & Prisma.UserWhereUniqueInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -312,17 +312,17 @@ export class UserCreateInput {
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  dateOfBirth!: Date;
+  dateOfBirth!: (Date & Prisma.UserCreateInput[\\"dateOfBirth\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  name!: string;
+  name!: (string & Prisma.UserCreateInput[\\"name\\"]);
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
     nullable: true
   })
-  balance?: number | undefined;
+  balance?: ((number | null) & Prisma.UserCreateInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -338,22 +338,22 @@ export class UserCreateManyInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.UserCreateManyInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  dateOfBirth!: Date;
+  dateOfBirth!: (Date & Prisma.UserCreateManyInput[\\"dateOfBirth\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  name!: string;
+  name!: (string & Prisma.UserCreateManyInput[\\"name\\"]);
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
     nullable: true
   })
-  balance?: number | undefined;
+  balance?: ((number | null) & Prisma.UserCreateManyInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -371,22 +371,22 @@ export class UserOrderByWithRelationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  id?: \\"asc\\" | \\"desc\\" | undefined;
+  id?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  dateOfBirth?: \\"asc\\" | \\"desc\\" | undefined;
+  dateOfBirth?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  name?: \\"asc\\" | \\"desc\\" | undefined;
+  name?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrderInput, {
     nullable: true
   })
-  balance?: SortOrderInput | undefined;
+  balance?: ((SortOrderInput | null) & Prisma.UserOrderByWithRelationInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -406,37 +406,37 @@ export class UserScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  AND?: UserScalarWhereWithAggregatesInput[] | undefined;
+  AND?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  OR?: UserScalarWhereWithAggregatesInput[] | undefined;
+  OR?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  NOT?: UserScalarWhereWithAggregatesInput[] | undefined;
+  NOT?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntWithAggregatesFilter, {
     nullable: true
   })
-  id?: IntWithAggregatesFilter | undefined;
+  id?: ((IntWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeWithAggregatesFilter | undefined;
+  dateOfBirth?: ((DateTimeWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
-  name?: StringWithAggregatesFilter | undefined;
+  name?: ((StringWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => FloatNullableWithAggregatesFilter, {
     nullable: true
   })
-  balance?: FloatNullableWithAggregatesFilter | undefined;
+  balance?: ((FloatNullableWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -455,17 +455,17 @@ export class UserUpdateInput {
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFieldUpdateOperationsInput | undefined;
+  dateOfBirth?: ((DateTimeFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  name?: StringFieldUpdateOperationsInput | undefined;
+  name?: ((StringFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => NullableFloatFieldUpdateOperationsInput, {
     nullable: true
   })
-  balance?: NullableFloatFieldUpdateOperationsInput | undefined;
+  balance?: ((NullableFloatFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -484,17 +484,17 @@ export class UserUpdateManyMutationInput {
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFieldUpdateOperationsInput | undefined;
+  dateOfBirth?: ((DateTimeFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  name?: StringFieldUpdateOperationsInput | undefined;
+  name?: ((StringFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => NullableFloatFieldUpdateOperationsInput, {
     nullable: true
   })
-  balance?: NullableFloatFieldUpdateOperationsInput | undefined;
+  balance?: ((NullableFloatFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -514,37 +514,37 @@ export class UserWhereInput {
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  AND?: UserWhereInput[] | undefined;
+  AND?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  OR?: UserWhereInput[] | undefined;
+  OR?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  NOT?: UserWhereInput[] | undefined;
+  NOT?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntFilter, {
     nullable: true
   })
-  id?: IntFilter | undefined;
+  id?: ((IntFilter | null) & Prisma.UserWhereInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFilter | undefined;
+  dateOfBirth?: ((DateTimeFilter | null) & Prisma.UserWhereInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  name?: StringFilter | undefined;
+  name?: ((StringFilter | null) & Prisma.UserWhereInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => FloatNullableFilter, {
     nullable: true
   })
-  balance?: FloatNullableFilter | undefined;
+  balance?: ((FloatNullableFilter | null) & Prisma.UserWhereInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -564,37 +564,37 @@ export class UserWhereUniqueInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.UserWhereUniqueInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  AND?: UserWhereInput[] | undefined;
+  AND?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  OR?: UserWhereInput[] | undefined;
+  OR?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  NOT?: UserWhereInput[] | undefined;
+  NOT?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFilter | undefined;
+  dateOfBirth?: ((DateTimeFilter | null) & Prisma.UserWhereUniqueInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  name?: StringFilter | undefined;
+  name?: ((StringFilter | null) & Prisma.UserWhereUniqueInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => FloatNullableFilter, {
     nullable: true
   })
-  balance?: FloatNullableFilter | undefined;
+  balance?: ((FloatNullableFilter | null) & Prisma.UserWhereUniqueInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -641,12 +641,12 @@ export class UserCreateInput {
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  dateOfBirth!: Date;
+  dateOfBirth!: (Date & Prisma.UserCreateInput[\\"dateOfBirth\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  name!: string;
+  name!: (string & Prisma.UserCreateInput[\\"name\\"]);
 }
 "
 `;
@@ -662,17 +662,17 @@ export class UserCreateManyInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.UserCreateManyInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  dateOfBirth!: Date;
+  dateOfBirth!: (Date & Prisma.UserCreateManyInput[\\"dateOfBirth\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  name!: string;
+  name!: (string & Prisma.UserCreateManyInput[\\"name\\"]);
 }
 "
 `;
@@ -690,17 +690,17 @@ export class UserOrderByWithRelationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  id?: \\"asc\\" | \\"desc\\" | undefined;
+  id?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  dateOfBirth?: \\"asc\\" | \\"desc\\" | undefined;
+  dateOfBirth?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  name?: \\"asc\\" | \\"desc\\" | undefined;
+  name?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"name\\"]) | undefined;
 }
 "
 `;
@@ -720,32 +720,32 @@ export class UserScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  AND?: UserScalarWhereWithAggregatesInput[] | undefined;
+  AND?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  OR?: UserScalarWhereWithAggregatesInput[] | undefined;
+  OR?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  NOT?: UserScalarWhereWithAggregatesInput[] | undefined;
+  NOT?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntWithAggregatesFilter, {
     nullable: true
   })
-  id?: IntWithAggregatesFilter | undefined;
+  id?: ((IntWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeWithAggregatesFilter | undefined;
+  dateOfBirth?: ((DateTimeWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
-  name?: StringWithAggregatesFilter | undefined;
+  name?: ((StringWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"name\\"]) | undefined;
 }
 "
 `;
@@ -764,12 +764,12 @@ export class UserUpdateInput {
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFieldUpdateOperationsInput | undefined;
+  dateOfBirth?: ((DateTimeFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  name?: StringFieldUpdateOperationsInput | undefined;
+  name?: ((StringFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"name\\"]) | undefined;
 }
 "
 `;
@@ -788,12 +788,12 @@ export class UserUpdateManyMutationInput {
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFieldUpdateOperationsInput | undefined;
+  dateOfBirth?: ((DateTimeFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  name?: StringFieldUpdateOperationsInput | undefined;
+  name?: ((StringFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"name\\"]) | undefined;
 }
 "
 `;
@@ -813,32 +813,32 @@ export class UserWhereInput {
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  AND?: UserWhereInput[] | undefined;
+  AND?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  OR?: UserWhereInput[] | undefined;
+  OR?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  NOT?: UserWhereInput[] | undefined;
+  NOT?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntFilter, {
     nullable: true
   })
-  id?: IntFilter | undefined;
+  id?: ((IntFilter | null) & Prisma.UserWhereInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFilter | undefined;
+  dateOfBirth?: ((DateTimeFilter | null) & Prisma.UserWhereInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  name?: StringFilter | undefined;
+  name?: ((StringFilter | null) & Prisma.UserWhereInput[\\"name\\"]) | undefined;
 }
 "
 `;
@@ -858,32 +858,32 @@ export class UserWhereUniqueInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.UserWhereUniqueInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  AND?: UserWhereInput[] | undefined;
+  AND?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  OR?: UserWhereInput[] | undefined;
+  OR?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  NOT?: UserWhereInput[] | undefined;
+  NOT?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFilter | undefined;
+  dateOfBirth?: ((DateTimeFilter | null) & Prisma.UserWhereUniqueInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  name?: StringFilter | undefined;
+  name?: ((StringFilter | null) & Prisma.UserWhereUniqueInput[\\"name\\"]) | undefined;
 }
 "
 `;
@@ -899,17 +899,17 @@ export class UserCreateInput {
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  dateOfBirth!: Date;
+  dateOfBirth!: (Date & Prisma.UserCreateInput[\\"dateOfBirth\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  name!: string;
+  name!: (string & Prisma.UserCreateInput[\\"name\\"]);
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
     nullable: true
   })
-  balance?: number | undefined;
+  balance?: ((number | null) & Prisma.UserCreateInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -925,22 +925,22 @@ export class UserCreateManyInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.UserCreateManyInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
-  dateOfBirth!: Date;
+  dateOfBirth!: (Date & Prisma.UserCreateManyInput[\\"dateOfBirth\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  name!: string;
+  name!: (string & Prisma.UserCreateManyInput[\\"name\\"]);
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
     nullable: true
   })
-  balance?: number | undefined;
+  balance?: ((number | null) & Prisma.UserCreateManyInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -958,22 +958,22 @@ export class UserOrderByWithRelationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  id?: \\"asc\\" | \\"desc\\" | undefined;
+  id?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  dateOfBirth?: \\"asc\\" | \\"desc\\" | undefined;
+  dateOfBirth?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  name?: \\"asc\\" | \\"desc\\" | undefined;
+  name?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.UserOrderByWithRelationInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrderInput, {
     nullable: true
   })
-  balance?: SortOrderInput | undefined;
+  balance?: ((SortOrderInput | null) & Prisma.UserOrderByWithRelationInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -993,37 +993,37 @@ export class UserScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  AND?: UserScalarWhereWithAggregatesInput[] | undefined;
+  AND?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  OR?: UserScalarWhereWithAggregatesInput[] | undefined;
+  OR?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserScalarWhereWithAggregatesInput], {
     nullable: true
   })
-  NOT?: UserScalarWhereWithAggregatesInput[] | undefined;
+  NOT?: ((UserScalarWhereWithAggregatesInput[] | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntWithAggregatesFilter, {
     nullable: true
   })
-  id?: IntWithAggregatesFilter | undefined;
+  id?: ((IntWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeWithAggregatesFilter | undefined;
+  dateOfBirth?: ((DateTimeWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
-  name?: StringWithAggregatesFilter | undefined;
+  name?: ((StringWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => FloatNullableWithAggregatesFilter, {
     nullable: true
   })
-  balance?: FloatNullableWithAggregatesFilter | undefined;
+  balance?: ((FloatNullableWithAggregatesFilter | null) & Prisma.UserScalarWhereWithAggregatesInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -1042,17 +1042,17 @@ export class UserUpdateInput {
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFieldUpdateOperationsInput | undefined;
+  dateOfBirth?: ((DateTimeFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  name?: StringFieldUpdateOperationsInput | undefined;
+  name?: ((StringFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => NullableFloatFieldUpdateOperationsInput, {
     nullable: true
   })
-  balance?: NullableFloatFieldUpdateOperationsInput | undefined;
+  balance?: ((NullableFloatFieldUpdateOperationsInput | null) & Prisma.UserUpdateInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -1071,17 +1071,17 @@ export class UserUpdateManyMutationInput {
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFieldUpdateOperationsInput | undefined;
+  dateOfBirth?: ((DateTimeFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  name?: StringFieldUpdateOperationsInput | undefined;
+  name?: ((StringFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => NullableFloatFieldUpdateOperationsInput, {
     nullable: true
   })
-  balance?: NullableFloatFieldUpdateOperationsInput | undefined;
+  balance?: ((NullableFloatFieldUpdateOperationsInput | null) & Prisma.UserUpdateManyMutationInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -1101,37 +1101,37 @@ export class UserWhereInput {
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  AND?: UserWhereInput[] | undefined;
+  AND?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  OR?: UserWhereInput[] | undefined;
+  OR?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  NOT?: UserWhereInput[] | undefined;
+  NOT?: ((UserWhereInput[] | null) & Prisma.UserWhereInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntFilter, {
     nullable: true
   })
-  id?: IntFilter | undefined;
+  id?: ((IntFilter | null) & Prisma.UserWhereInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFilter | undefined;
+  dateOfBirth?: ((DateTimeFilter | null) & Prisma.UserWhereInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  name?: StringFilter | undefined;
+  name?: ((StringFilter | null) & Prisma.UserWhereInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => FloatNullableFilter, {
     nullable: true
   })
-  balance?: FloatNullableFilter | undefined;
+  balance?: ((FloatNullableFilter | null) & Prisma.UserWhereInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -1151,37 +1151,37 @@ export class UserWhereUniqueInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.UserWhereUniqueInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  AND?: UserWhereInput[] | undefined;
+  AND?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  OR?: UserWhereInput[] | undefined;
+  OR?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [UserWhereInput], {
     nullable: true
   })
-  NOT?: UserWhereInput[] | undefined;
+  NOT?: ((UserWhereInput[] | null) & Prisma.UserWhereUniqueInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
   })
-  dateOfBirth?: DateTimeFilter | undefined;
+  dateOfBirth?: ((DateTimeFilter | null) & Prisma.UserWhereUniqueInput[\\"dateOfBirth\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  name?: StringFilter | undefined;
+  name?: ((StringFilter | null) & Prisma.UserWhereUniqueInput[\\"name\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => FloatNullableFilter, {
     nullable: true
   })
-  balance?: FloatNullableFilter | undefined;
+  balance?: ((FloatNullableFilter | null) & Prisma.UserWhereUniqueInput[\\"balance\\"]) | undefined;
 }
 "
 `;
@@ -1197,7 +1197,7 @@ export class SampleModelCreateInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  normalField!: string;
+  normalField!: (string & Prisma.SampleModelCreateInput[\\"normalField\\"]);
 }
 "
 `;
@@ -1213,12 +1213,12 @@ export class SampleModelCreateManyInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.SampleModelCreateManyInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  normalField!: string;
+  normalField!: (string & Prisma.SampleModelCreateManyInput[\\"normalField\\"]);
 }
 "
 `;
@@ -1235,7 +1235,7 @@ export class SampleModelUpdateInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  normalField?: StringFieldUpdateOperationsInput | undefined;
+  normalField?: ((StringFieldUpdateOperationsInput | null) & Prisma.SampleModelUpdateInput[\\"normalField\\"]) | undefined;
 }
 "
 `;
@@ -1257,42 +1257,42 @@ export class SampleModelOrderByWithAggregationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  id?: \\"asc\\" | \\"desc\\" | undefined;
+  id?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  omittedField?: \\"asc\\" | \\"desc\\" | undefined;
+  omittedField?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  normalField?: \\"asc\\" | \\"desc\\" | undefined;
+  normalField?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"normalField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelCountOrderByAggregateInput, {
     nullable: true
   })
-  _count?: SampleModelCountOrderByAggregateInput | undefined;
+  _count?: ((SampleModelCountOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_count\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelAvgOrderByAggregateInput, {
     nullable: true
   })
-  _avg?: SampleModelAvgOrderByAggregateInput | undefined;
+  _avg?: ((SampleModelAvgOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_avg\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelMaxOrderByAggregateInput, {
     nullable: true
   })
-  _max?: SampleModelMaxOrderByAggregateInput | undefined;
+  _max?: ((SampleModelMaxOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_max\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelMinOrderByAggregateInput, {
     nullable: true
   })
-  _min?: SampleModelMinOrderByAggregateInput | undefined;
+  _min?: ((SampleModelMinOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_min\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelSumOrderByAggregateInput, {
     nullable: true
   })
-  _sum?: SampleModelSumOrderByAggregateInput | undefined;
+  _sum?: ((SampleModelSumOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_sum\\"]) | undefined;
 }
 "
 `;
@@ -1310,32 +1310,32 @@ export class SampleModelWhereInput {
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  AND?: SampleModelWhereInput[] | undefined;
+  AND?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  OR?: SampleModelWhereInput[] | undefined;
+  OR?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  NOT?: SampleModelWhereInput[] | undefined;
+  NOT?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntFilter, {
     nullable: true
   })
-  id?: IntFilter | undefined;
+  id?: ((IntFilter | null) & Prisma.SampleModelWhereInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  omittedField?: StringFilter | undefined;
+  omittedField?: ((StringFilter | null) & Prisma.SampleModelWhereInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  normalField?: StringFilter | undefined;
+  normalField?: ((StringFilter | null) & Prisma.SampleModelWhereInput[\\"normalField\\"]) | undefined;
 }
 "
 `;
@@ -1351,7 +1351,7 @@ export class SampleModelCreateInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  normalField!: string;
+  normalField!: (string & Prisma.SampleModelCreateInput[\\"normalField\\"]);
 }
 "
 `;
@@ -1367,12 +1367,12 @@ export class SampleModelCreateManyInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.SampleModelCreateManyInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  normalField!: string;
+  normalField!: (string & Prisma.SampleModelCreateManyInput[\\"normalField\\"]);
 }
 "
 `;
@@ -1394,42 +1394,42 @@ export class SampleModelOrderByWithAggregationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  id?: \\"asc\\" | \\"desc\\" | undefined;
+  id?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  omittedField?: \\"asc\\" | \\"desc\\" | undefined;
+  omittedField?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  normalField?: \\"asc\\" | \\"desc\\" | undefined;
+  normalField?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"normalField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelCountOrderByAggregateInput, {
     nullable: true
   })
-  _count?: SampleModelCountOrderByAggregateInput | undefined;
+  _count?: ((SampleModelCountOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_count\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelAvgOrderByAggregateInput, {
     nullable: true
   })
-  _avg?: SampleModelAvgOrderByAggregateInput | undefined;
+  _avg?: ((SampleModelAvgOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_avg\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelMaxOrderByAggregateInput, {
     nullable: true
   })
-  _max?: SampleModelMaxOrderByAggregateInput | undefined;
+  _max?: ((SampleModelMaxOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_max\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelMinOrderByAggregateInput, {
     nullable: true
   })
-  _min?: SampleModelMinOrderByAggregateInput | undefined;
+  _min?: ((SampleModelMinOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_min\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelSumOrderByAggregateInput, {
     nullable: true
   })
-  _sum?: SampleModelSumOrderByAggregateInput | undefined;
+  _sum?: ((SampleModelSumOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_sum\\"]) | undefined;
 }
 "
 `;
@@ -1446,12 +1446,12 @@ export class SampleModelUpdateInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  omittedField?: StringFieldUpdateOperationsInput | undefined;
+  omittedField?: ((StringFieldUpdateOperationsInput | null) & Prisma.SampleModelUpdateInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  normalField?: StringFieldUpdateOperationsInput | undefined;
+  normalField?: ((StringFieldUpdateOperationsInput | null) & Prisma.SampleModelUpdateInput[\\"normalField\\"]) | undefined;
 }
 "
 `;
@@ -1469,32 +1469,32 @@ export class SampleModelWhereInput {
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  AND?: SampleModelWhereInput[] | undefined;
+  AND?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  OR?: SampleModelWhereInput[] | undefined;
+  OR?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  NOT?: SampleModelWhereInput[] | undefined;
+  NOT?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntFilter, {
     nullable: true
   })
-  id?: IntFilter | undefined;
+  id?: ((IntFilter | null) & Prisma.SampleModelWhereInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  omittedField?: StringFilter | undefined;
+  omittedField?: ((StringFilter | null) & Prisma.SampleModelWhereInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  normalField?: StringFilter | undefined;
+  normalField?: ((StringFilter | null) & Prisma.SampleModelWhereInput[\\"normalField\\"]) | undefined;
 }
 "
 `;
@@ -1516,37 +1516,37 @@ export class SampleModelOrderByWithAggregationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  id?: \\"asc\\" | \\"desc\\" | undefined;
+  id?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  normalField?: \\"asc\\" | \\"desc\\" | undefined;
+  normalField?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"normalField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelCountOrderByAggregateInput, {
     nullable: true
   })
-  _count?: SampleModelCountOrderByAggregateInput | undefined;
+  _count?: ((SampleModelCountOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_count\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelAvgOrderByAggregateInput, {
     nullable: true
   })
-  _avg?: SampleModelAvgOrderByAggregateInput | undefined;
+  _avg?: ((SampleModelAvgOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_avg\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelMaxOrderByAggregateInput, {
     nullable: true
   })
-  _max?: SampleModelMaxOrderByAggregateInput | undefined;
+  _max?: ((SampleModelMaxOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_max\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelMinOrderByAggregateInput, {
     nullable: true
   })
-  _min?: SampleModelMinOrderByAggregateInput | undefined;
+  _min?: ((SampleModelMinOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_min\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelSumOrderByAggregateInput, {
     nullable: true
   })
-  _sum?: SampleModelSumOrderByAggregateInput | undefined;
+  _sum?: ((SampleModelSumOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_sum\\"]) | undefined;
 }
 "
 `;
@@ -1562,12 +1562,12 @@ export class SampleModelCreateInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  omittedField!: string;
+  omittedField!: (string & Prisma.SampleModelCreateInput[\\"omittedField\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  normalField!: string;
+  normalField!: (string & Prisma.SampleModelCreateInput[\\"normalField\\"]);
 }
 "
 `;
@@ -1583,17 +1583,17 @@ export class SampleModelCreateManyInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.SampleModelCreateManyInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  omittedField!: string;
+  omittedField!: (string & Prisma.SampleModelCreateManyInput[\\"omittedField\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  normalField!: string;
+  normalField!: (string & Prisma.SampleModelCreateManyInput[\\"normalField\\"]);
 }
 "
 `;
@@ -1610,12 +1610,12 @@ export class SampleModelUpdateInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  omittedField?: StringFieldUpdateOperationsInput | undefined;
+  omittedField?: ((StringFieldUpdateOperationsInput | null) & Prisma.SampleModelUpdateInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  normalField?: StringFieldUpdateOperationsInput | undefined;
+  normalField?: ((StringFieldUpdateOperationsInput | null) & Prisma.SampleModelUpdateInput[\\"normalField\\"]) | undefined;
 }
 "
 `;
@@ -1633,32 +1633,32 @@ export class SampleModelWhereInput {
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  AND?: SampleModelWhereInput[] | undefined;
+  AND?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  OR?: SampleModelWhereInput[] | undefined;
+  OR?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  NOT?: SampleModelWhereInput[] | undefined;
+  NOT?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntFilter, {
     nullable: true
   })
-  id?: IntFilter | undefined;
+  id?: ((IntFilter | null) & Prisma.SampleModelWhereInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  omittedField?: StringFilter | undefined;
+  omittedField?: ((StringFilter | null) & Prisma.SampleModelWhereInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  normalField?: StringFilter | undefined;
+  normalField?: ((StringFilter | null) & Prisma.SampleModelWhereInput[\\"normalField\\"]) | undefined;
 }
 "
 `;
@@ -1674,12 +1674,12 @@ export class SampleModelCreateInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  omittedField!: string;
+  omittedField!: (string & Prisma.SampleModelCreateInput[\\"omittedField\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  normalField!: string;
+  normalField!: (string & Prisma.SampleModelCreateInput[\\"normalField\\"]);
 }
 "
 `;
@@ -1695,17 +1695,17 @@ export class SampleModelCreateManyInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.SampleModelCreateManyInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  omittedField!: string;
+  omittedField!: (string & Prisma.SampleModelCreateManyInput[\\"omittedField\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  normalField!: string;
+  normalField!: (string & Prisma.SampleModelCreateManyInput[\\"normalField\\"]);
 }
 "
 `;
@@ -1727,42 +1727,42 @@ export class SampleModelOrderByWithAggregationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  id?: \\"asc\\" | \\"desc\\" | undefined;
+  id?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  omittedField?: \\"asc\\" | \\"desc\\" | undefined;
+  omittedField?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  normalField?: \\"asc\\" | \\"desc\\" | undefined;
+  normalField?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"normalField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelCountOrderByAggregateInput, {
     nullable: true
   })
-  _count?: SampleModelCountOrderByAggregateInput | undefined;
+  _count?: ((SampleModelCountOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_count\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelAvgOrderByAggregateInput, {
     nullable: true
   })
-  _avg?: SampleModelAvgOrderByAggregateInput | undefined;
+  _avg?: ((SampleModelAvgOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_avg\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelMaxOrderByAggregateInput, {
     nullable: true
   })
-  _max?: SampleModelMaxOrderByAggregateInput | undefined;
+  _max?: ((SampleModelMaxOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_max\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelMinOrderByAggregateInput, {
     nullable: true
   })
-  _min?: SampleModelMinOrderByAggregateInput | undefined;
+  _min?: ((SampleModelMinOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_min\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelSumOrderByAggregateInput, {
     nullable: true
   })
-  _sum?: SampleModelSumOrderByAggregateInput | undefined;
+  _sum?: ((SampleModelSumOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_sum\\"]) | undefined;
 }
 "
 `;
@@ -1780,32 +1780,32 @@ export class SampleModelWhereInput {
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  AND?: SampleModelWhereInput[] | undefined;
+  AND?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  OR?: SampleModelWhereInput[] | undefined;
+  OR?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  NOT?: SampleModelWhereInput[] | undefined;
+  NOT?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntFilter, {
     nullable: true
   })
-  id?: IntFilter | undefined;
+  id?: ((IntFilter | null) & Prisma.SampleModelWhereInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  omittedField?: StringFilter | undefined;
+  omittedField?: ((StringFilter | null) & Prisma.SampleModelWhereInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  normalField?: StringFilter | undefined;
+  normalField?: ((StringFilter | null) & Prisma.SampleModelWhereInput[\\"normalField\\"]) | undefined;
 }
 "
 `;
@@ -1822,7 +1822,7 @@ export class SampleModelUpdateInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  normalField?: StringFieldUpdateOperationsInput | undefined;
+  normalField?: ((StringFieldUpdateOperationsInput | null) & Prisma.SampleModelUpdateInput[\\"normalField\\"]) | undefined;
 }
 "
 `;
@@ -1839,7 +1839,7 @@ export class SampleModelUpdateManyMutationInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  normalField?: StringFieldUpdateOperationsInput | undefined;
+  normalField?: ((StringFieldUpdateOperationsInput | null) & Prisma.SampleModelUpdateManyMutationInput[\\"normalField\\"]) | undefined;
 }
 "
 `;
@@ -1855,12 +1855,12 @@ export class SampleModelCreateInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  omittedField!: string;
+  omittedField!: (string & Prisma.SampleModelCreateInput[\\"omittedField\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  normalField!: string;
+  normalField!: (string & Prisma.SampleModelCreateInput[\\"normalField\\"]);
 }
 "
 `;
@@ -1876,17 +1876,17 @@ export class SampleModelCreateManyInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  id?: number | undefined;
+  id?: ((number | null) & Prisma.SampleModelCreateManyInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  omittedField!: string;
+  omittedField!: (string & Prisma.SampleModelCreateManyInput[\\"omittedField\\"]);
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  normalField!: string;
+  normalField!: (string & Prisma.SampleModelCreateManyInput[\\"normalField\\"]);
 }
 "
 `;
@@ -1908,42 +1908,42 @@ export class SampleModelOrderByWithAggregationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  id?: \\"asc\\" | \\"desc\\" | undefined;
+  id?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  omittedField?: \\"asc\\" | \\"desc\\" | undefined;
+  omittedField?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  normalField?: \\"asc\\" | \\"desc\\" | undefined;
+  normalField?: ((\\"asc\\" | \\"desc\\" | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"normalField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelCountOrderByAggregateInput, {
     nullable: true
   })
-  _count?: SampleModelCountOrderByAggregateInput | undefined;
+  _count?: ((SampleModelCountOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_count\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelAvgOrderByAggregateInput, {
     nullable: true
   })
-  _avg?: SampleModelAvgOrderByAggregateInput | undefined;
+  _avg?: ((SampleModelAvgOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_avg\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelMaxOrderByAggregateInput, {
     nullable: true
   })
-  _max?: SampleModelMaxOrderByAggregateInput | undefined;
+  _max?: ((SampleModelMaxOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_max\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelMinOrderByAggregateInput, {
     nullable: true
   })
-  _min?: SampleModelMinOrderByAggregateInput | undefined;
+  _min?: ((SampleModelMinOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_min\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => SampleModelSumOrderByAggregateInput, {
     nullable: true
   })
-  _sum?: SampleModelSumOrderByAggregateInput | undefined;
+  _sum?: ((SampleModelSumOrderByAggregateInput | null) & Prisma.SampleModelOrderByWithAggregationInput[\\"_sum\\"]) | undefined;
 }
 "
 `;
@@ -1960,12 +1960,12 @@ export class SampleModelUpdateInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  omittedField?: StringFieldUpdateOperationsInput | undefined;
+  omittedField?: ((StringFieldUpdateOperationsInput | null) & Prisma.SampleModelUpdateInput[\\"omittedField\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  normalField?: StringFieldUpdateOperationsInput | undefined;
+  normalField?: ((StringFieldUpdateOperationsInput | null) & Prisma.SampleModelUpdateInput[\\"normalField\\"]) | undefined;
 }
 "
 `;
@@ -1983,27 +1983,27 @@ export class SampleModelWhereInput {
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  AND?: SampleModelWhereInput[] | undefined;
+  AND?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"AND\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  OR?: SampleModelWhereInput[] | undefined;
+  OR?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"OR\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => [SampleModelWhereInput], {
     nullable: true
   })
-  NOT?: SampleModelWhereInput[] | undefined;
+  NOT?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput[\\"NOT\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => IntFilter, {
     nullable: true
   })
-  id?: IntFilter | undefined;
+  id?: ((IntFilter | null) & Prisma.SampleModelWhereInput[\\"id\\"]) | undefined;
 
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  normalField?: StringFilter | undefined;
+  normalField?: ((StringFilter | null) & Prisma.SampleModelWhereInput[\\"normalField\\"]) | undefined;
 }
 "
 `;

@@ -9,6 +9,12 @@ const config: Config.InitialOptions = {
     "^.+\\.tsx?$": [
       "ts-jest",
       {
+        // Generated functional artifacts use a lightweight runtime Prisma mock
+        // without schema-specific input type declarations. Their generated
+        // types are covered by regression snapshots and consumer type-checks.
+        diagnostics: {
+          exclude: ["**/tests/artifacts/**"],
+        },
         // ts-jest configuration goes here
         tsconfig: "<rootDir>/tests/tsconfig.json",
       },

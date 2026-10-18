@@ -7,7 +7,7 @@ export declare function generateGraphQLFieldsImport(sourceFile: SourceFile): voi
 export declare function generateGraphQLInfoImport(sourceFile: SourceFile): void;
 export declare function generateGraphQLScalarsImport(sourceFile: SourceFile): void;
 export declare function generateGraphQLScalarTypeImport(sourceFile: SourceFile): void;
-export declare function generateCustomScalarsImport(sourceFile: SourceFile, level?: number): void;
+export declare function generateCustomScalarsImport(sourceFile: SourceFile, level?: number, includePrismaBytesScalar?: boolean): void;
 export declare function generateHelpersFileImport(sourceFile: SourceFile, level?: number): void;
 export declare function generatePrismaNamespaceImport(sourceFile: SourceFile, options: GeneratorOptions, level?: number): void;
 export declare function generateArgsBarrelFile(sourceFile: SourceFile, argsTypeNames: string[]): void;

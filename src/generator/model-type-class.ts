@@ -37,7 +37,11 @@ export default function generateObjectTypeClassFromModel(
   generateTypeGraphQLImport(sourceFile);
   generateGraphQLScalarsImport(sourceFile);
   generatePrismaNamespaceImport(sourceFile, dmmfDocument.options, 1);
-  generateCustomScalarsImport(sourceFile, 1);
+  generateCustomScalarsImport(
+    sourceFile,
+    1,
+    model.fields.some(field => field.typeGraphQLType === "PrismaBytesScalar"),
+  );
   generateModelsImports(
     sourceFile,
     model.fields
