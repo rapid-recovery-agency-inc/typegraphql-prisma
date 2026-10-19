@@ -1,6 +1,7 @@
 import { SourceFile } from "ts-morph";
 import {
   generateGraphQLScalarTypeImport,
+  generateGraphQLScalarsImport,
   generatePrismaNamespaceImport,
 } from "./imports";
 
@@ -12,6 +13,7 @@ export function generateCustomScalars(
 ) {
   generatePrismaNamespaceImport(sourceFile, options);
   generateGraphQLScalarTypeImport(sourceFile);
+  generateGraphQLScalarsImport(sourceFile);
 
   sourceFile.addStatements(/* ts */ `
     export const DecimalJSScalar = new GraphQLScalarType({
@@ -29,6 +31,14 @@ export function generateCustomScalars(
         }
         return new Prisma.Decimal(value);
       },
+    });
+
+    const byteResolverConfig = GraphQLScalars.ByteResolver.toConfig();
+
+    export const PrismaBytesScalar = new GraphQLScalarType({
+      ...byteResolverConfig,
+      serialize: (value: unknown) =>
+        byteResolverConfig.serialize(value instanceof Uint8Array ? Buffer.from(value) : value),
     });
   `);
 }

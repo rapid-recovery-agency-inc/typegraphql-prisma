@@ -56,12 +56,19 @@ export function generateGraphQLScalarTypeImport(sourceFile: SourceFile) {
   });
 }
 
-export function generateCustomScalarsImport(sourceFile: SourceFile, level = 0) {
+export function generateCustomScalarsImport(
+  sourceFile: SourceFile,
+  level = 0,
+  includePrismaBytesScalar = false,
+) {
   sourceFile.addImportDeclaration({
     moduleSpecifier:
       (level === 0 ? "./" : "") +
       path.posix.join(...Array(level).fill(".."), "scalars"),
-    namedImports: ["DecimalJSScalar"],
+    namedImports: [
+      "DecimalJSScalar",
+      ...(includePrismaBytesScalar ? ["PrismaBytesScalar"] : []),
+    ],
   });
 }
 

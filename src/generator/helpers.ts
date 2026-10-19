@@ -84,7 +84,7 @@ export function mapScalarToTSType(scalar: string, isInputType: boolean) {
       return "Prisma.Decimal";
     }
     case PrismaScalars.Bytes: {
-      return "Buffer";
+      return isInputType ? "Buffer" : "Uint8Array";
     }
     default:
       throw new Error(`Unrecognized scalar type: ${scalar}`);
@@ -149,7 +149,7 @@ export function mapScalarToTypeGraphQLType(
       return "DecimalJSScalar";
     }
     case PrismaScalars.Bytes: {
-      return "GraphQLScalars.ByteResolver";
+      return "PrismaBytesScalar";
     }
     default: {
       throw new Error(`Unrecognized scalar type: ${scalar}`);

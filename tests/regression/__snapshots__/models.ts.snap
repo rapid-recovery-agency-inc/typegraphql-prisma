@@ -300,7 +300,7 @@ exports[`models should properly generate object type class for prisma model with
 "import * as TypeGraphQL from \\"type-graphql\\";
 import * as GraphQLScalars from \\"graphql-scalars\\";
 import { Prisma } from \\"../../../helpers/prisma-client-mock\\";
-import { DecimalJSScalar } from \\"../scalars\\";
+import { DecimalJSScalar, PrismaBytesScalar } from \\"../scalars\\";
 
 @TypeGraphQL.ObjectType(\\"NativeTypeModel\\", {})
 export class NativeTypeModel {
@@ -314,10 +314,10 @@ export class NativeTypeModel {
   })
   bigInt?: bigint | null;
 
-  @TypeGraphQL.Field(_type => GraphQLScalars.ByteResolver, {
+  @TypeGraphQL.Field(_type => PrismaBytesScalar, {
     nullable: true
   })
-  byteA?: Buffer | null;
+  byteA?: Uint8Array | null;
 
   @TypeGraphQL.Field(_type => DecimalJSScalar, {
     nullable: true

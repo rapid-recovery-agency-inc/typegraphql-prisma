@@ -297,6 +297,29 @@ describe("inputs", () => {
     expect(indexTSFile).toMatchSnapshot("index");
   });
 
+  it("should emit Prisma-compatible recursive logical filter types", async () => {
+    const schema = /* prisma */ `
+      model SampleModel {
+        id Int @id @default(autoincrement())
+      }
+    `;
+
+    await generateCodeFromSchema(schema, { outputDirPath });
+    const sampleModelWhereInputTSFile = await readGeneratedFile(
+      "/resolvers/inputs/SampleModelWhereInput.ts",
+    );
+
+    expect(sampleModelWhereInputTSFile).toContain(
+      'AND?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput["AND"]) | undefined;',
+    );
+    expect(sampleModelWhereInputTSFile).toContain(
+      'NOT?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput["NOT"]) | undefined;',
+    );
+    expect(sampleModelWhereInputTSFile).toContain(
+      'OR?: ((SampleModelWhereInput[] | null) & Prisma.SampleModelWhereInput["OR"]) | undefined;',
+    );
+  });
+
   it("should properly generate input type classes for filtering models by many to many relation fields", async () => {
     const schema = /* prisma */ `
       model FirstModel {

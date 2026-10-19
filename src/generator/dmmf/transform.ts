@@ -174,12 +174,20 @@ function transformInputType(dmmfDocument: DmmfDocument) {
             selectedInputType,
             dmmfDocument,
           );
-          const fieldTSType = getFieldTSType(
+          // Generated classes supply GraphQL decorators and runtime metadata. The
+          // intersection preserves that GraphQL-safe TypeScript surface while
+          // making every field assignable to Prisma 7's exact client property.
+          const selectedFieldTSType = getFieldTSType(
             dmmfDocument,
             selectedInputType,
-            field.isRequired,
+            true,
             true,
           );
+          const optionalSuffix = field.isRequired ? "" : " | undefined";
+          const graphQLFieldTSType = field.isRequired
+            ? selectedFieldTSType
+            : `(${selectedFieldTSType} | null)`;
+          const fieldTSType = `(${graphQLFieldTSType} & Prisma.${inputType.name}[${JSON.stringify(field.name)}])${optionalSuffix}`;
           const isOmitted = !modelField?.isOmitted.input
             ? false
             : typeof modelField.isOmitted.input === "boolean"
